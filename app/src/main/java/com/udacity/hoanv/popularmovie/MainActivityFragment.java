@@ -1,6 +1,7 @@
 package com.udacity.hoanv.popularmovie;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -8,6 +9,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.GridView;
+
+import org.json.JSONException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,16 +28,32 @@ import java.util.List;
  */
 public class MainActivityFragment extends Fragment {
 
-    private List<MovieThumbnail> movieList;
-
+    private static final String TAG_LOG = MainActivityFragment.class.getSimpleName();
+    private ImageAdapter imageAdapter;
     public MainActivityFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        new MoviePopularTask().execute("popularity.desc");
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        View fragment = inflater.inflate(R.layout.fragment_main, container, false);
+        if(fragment != null) {
+            GridView gridView = (GridView) fragment.findViewById(R.id.movie_gridview);
+            imageAdapter = new ImageAdapter(gridView, getActivity(), new ArrayList<MovieThumbnail>());
+            gridView.setAdapter(imageAdapter);
+
+            gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent detailIntent = new Intent(getActivity(), DetailActivity.class);
+                    startActivity(detailIntent);
+                }
+
+            });
+            //run task for get result from API
+            new MoviePopularTask().execute("popularity.desc");
+        }
+        return fragment;
     }
 
     @Override
@@ -41,12 +62,12 @@ public class MainActivityFragment extends Fragment {
         setHasOptionsMenu(true);
     }
 
-    public class MoviePopularTask extends AsyncTask<String, Void, String>{
+    public class MoviePopularTask extends AsyncTask<String, Void, List<MovieThumbnail>>{
 
         private final String TAG_LOG = MoviePopularTask.class.getSimpleName();
 
         @Override
-        protected String doInBackground(String... params) {
+        protected List<MovieThumbnail> doInBackground(String... params) {
             String movieJsonStr = null;
             HttpURLConnection conn = null;
             URL urlConn = null;
@@ -82,7 +103,6 @@ public class MainActivityFragment extends Fragment {
                 }
 
                 movieJsonStr = buffer.toString();
-                Log.i(TAG_LOG, "Data: " + movieJsonStr);
             } catch (IOException e) {
                 Log.e(TAG_LOG, "ERROR: " + e.getMessage(), e);
                 e.printStackTrace();
@@ -100,14 +120,21 @@ public class MainActivityFragment extends Fragment {
                 }
             }
 
-            return movieJsonStr;
+            try {
+                return MovieUtils.getThumbnailFromJson(movieJsonStr);
+            } catch (JSONException e) {
+                Log.e(TAG_LOG, "ERROR: " + e.getMessage(), e);
+                return null;
+            }
         }
 
         @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-            movieList = new ArrayList<>();
-
+        protected void onPostExecute(List<MovieThumbnail> result) {
+            super.onPostExecute(result);
+            if (imageAdapter != null) {
+                imageAdapter.clear();
+                imageAdapter.setMovieThumbnailList(result);
+            }
         }
     }
 

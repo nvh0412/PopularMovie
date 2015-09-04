@@ -32,5 +32,11 @@ public class MovieThumbnail {
         this.urlThumbnail = urlThumbnail;
     }
 
-
+    @Override
+    public String toString() {
+        return "MovieThumbnail{" +
+                "id=" + id +
+                ", urlThumbnail='" + urlThumbnail + '\'' +
+                '}';
+    }
 }
