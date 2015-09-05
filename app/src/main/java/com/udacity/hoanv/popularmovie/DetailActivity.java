@@ -1,17 +1,21 @@
 package com.udacity.hoanv.popularmovie;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class DetailActivity extends Activity {
+public class DetailActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_detail);
+        if(savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().add(R.id.container, new DetailActivityFragment())
+                    .commit();
+        }
     }
 
     @Override

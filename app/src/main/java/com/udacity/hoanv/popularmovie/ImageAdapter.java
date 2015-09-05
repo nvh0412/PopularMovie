@@ -17,7 +17,6 @@ import java.util.List;
 public class ImageAdapter extends BaseAdapter {
 
     private static final String TAG_LOG = ImageAdapter.class.getSimpleName();
-    private static final String THUMBNAIL_BASE_URL = "http://image.tmdb.org/t/p/w185/";
     private List<MovieThumbnail> movieThumbnailList;
     private Context mContext;
     private View parentView;
@@ -68,7 +67,7 @@ public class ImageAdapter extends BaseAdapter {
         }
 
         MovieThumbnail item = movieThumbnailList.get(position);
-        Picasso.with(mContext).load(THUMBNAIL_BASE_URL + item.getUrlThumbnail())
+        Picasso.with(mContext).load(Constant.THUMBNAIL_BASE_URL + item.getUrlThumbnail())
                 .into(imageView);
         return imageView;
     }

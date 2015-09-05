@@ -1,6 +1,9 @@
 <resources>
-    <string name="app_name">PopularMovie</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">Pop Movies</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_detail">DetailActivity</string>
+    <string name="title_activity_detail">MovieDetail</string>
+    <string name="movie_thumbnail_description">Thumbnail of movie</string>
+    <string name="manufactur_year">2015</string>
+    <string name="movie_runtime">110</string>
+    <string name="movie_favorite">MARK AS \nFAVORITE</string>
 </resources>

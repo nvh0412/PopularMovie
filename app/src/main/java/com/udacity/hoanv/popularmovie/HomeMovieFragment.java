@@ -1,10 +1,10 @@
 package com.udacity.hoanv.popularmovie;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,11 +26,11 @@ import java.util.List;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MainActivityFragment extends Fragment {
+public class HomeMovieFragment extends Fragment {
 
-    private static final String TAG_LOG = MainActivityFragment.class.getSimpleName();
+    private static final String TAG_LOG = HomeMovieFragment.class.getSimpleName();
     private ImageAdapter imageAdapter;
-    public MainActivityFragment() {
+    public HomeMovieFragment() {
     }
 
     @Override
@@ -46,6 +46,7 @@ public class MainActivityFragment extends Fragment {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Intent detailIntent = new Intent(getActivity(), DetailActivity.class);
+                    detailIntent.putExtra(Constant.EXTRA_MOVIEID, imageAdapter.getItemId(position));
                     startActivity(detailIntent);
                 }
 
@@ -73,17 +74,12 @@ public class MainActivityFragment extends Fragment {
             URL urlConn = null;
             BufferedReader bufferedReader = null;
 
-            final String MOVIE_BASE_URL = "http://api.themoviedb.org/3/discover/movie?";
-            final String API_KEY = "api_key";
-            final String OWN_API_KEY = "38a73981d5e8bc34978f3a9d569fe223";
-            final String SORT_BY = "sort_by";
-
             try {
                 //Build URL Path by Uri Builder
                 //Set API_KEY and sort_by parameter.
-                Uri uriBuilder = Uri.parse(MOVIE_BASE_URL).buildUpon()
-                        .appendQueryParameter(API_KEY, OWN_API_KEY)
-                        .appendQueryParameter(SORT_BY, params[0])
+                Uri uriBuilder = Uri.parse(Constant.MOVIE_BASE_URL).buildUpon()
+                        .appendQueryParameter(Constant.API_KEY, Constant.OWN_API_KEY)
+                        .appendQueryParameter(Constant.SORT_BY, params[0])
                         .build();
 
                 //Initialize url
