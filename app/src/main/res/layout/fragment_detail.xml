@@ -1,16 +1,96 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="#FFFFFF"
+                tools:context="com.udacity.hoanv.popularmovie.DetailActivityFragment">
+    <TextView
+        android:id="@+id/movie_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:textSize="@dimen/abc_text_size_display_2_material"
+        android:layout_weight="1"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:singleLine="true"
+        android:gravity="center_vertical"
+        android:background="#009688"
+        android:textColor="#FFFFFF"/>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin">
+            <ImageView
+                android:id="@+id/movie_poster"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/movie_thumbnail_description"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/activity_vertical_margin"
                 android:paddingBottom="@dimen/activity_vertical_margin"
-                tools:context="com.udacity.hoanv.popularmovie.DetailActivityFragment">
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"/>
 
-    <TextView
-        android:text="@string/hello_world"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_toRightOf="@+id/movie_poster"
+                android:id="@+id/movie_manufacturer_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/manufactur_year"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:textSize="@dimen/abc_text_size_headline_material"
+                android:textColor="#000000"/>
 
-</RelativeLayout>
+            <TextView
+                android:id="@+id/movie_runtime"
+                android:layout_toRightOf="@+id/movie_poster"
+                android:layout_below="@+id/movie_manufacturer_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/movie_runtime"
+                android:textSize="@dimen/abc_text_size_title_material"
+                android:textStyle="italic"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:textColor="#000000"/>
+
+            <TextView
+                android:id="@+id/movie_vote_average"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/movie_runtime"
+                android:layout_toRightOf="@+id/movie_poster"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:textColor="#000000"/>
+
+            <Button
+                android:layout_below="@+id/movie_vote_average"
+                android:layout_toRightOf="@+id/movie_poster"
+                android:id="@+id/movie_favorite"
+                android:background="#A7FFEB"
+                android:textColor="#000000"
+                android:textSize="@dimen/abc_text_size_button_material"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@string/movie_favorite"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/movie_overview"
+                android:layout_below="@+id/movie_poster"
+                android:textColor="#000000"/>
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>
