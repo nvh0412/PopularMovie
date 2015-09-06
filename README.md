@@ -1,4 +1,8 @@
 # PopularMovie
-Popular Movie application. Stage1 which include some features ex: UI, sync to server and present information to the user
+Popular Movie Application Stage1
+
+1. API_KEY of MovieDB's API has been put in Strings.xml file with name equal "api_key".
+2. If you want to change order of list movies, you have to change value of setting order in setting menu.
+
 
 

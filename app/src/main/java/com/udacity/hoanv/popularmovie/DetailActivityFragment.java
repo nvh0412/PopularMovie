@@ -82,7 +82,7 @@ public class DetailActivityFragment extends Fragment {
             try {
                 Uri uriBuilder = Uri.parse(Constant.MOVIE_DETAIL_URL).buildUpon()
                         .appendPath(params[0].toString())
-                        .appendQueryParameter(Constant.API_KEY, Constant.OWN_API_KEY)
+                        .appendQueryParameter(Constant.API_KEY, getString(R.string.api_key))
                         .build();
                 Log.d(TAG_LOG, "URL DETAIL : " +  uriBuilder.toString());
                 urlRequest = new URL(uriBuilder.toString());

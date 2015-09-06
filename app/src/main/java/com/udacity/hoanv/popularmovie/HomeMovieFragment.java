@@ -92,7 +92,7 @@ public class HomeMovieFragment extends Fragment {
                 //Build URL Path by Uri Builder
                 //Set API_KEY and sort_by parameter.
                 Uri uriBuilder = Uri.parse(Constant.MOVIE_BASE_URL).buildUpon()
-                        .appendQueryParameter(Constant.API_KEY, Constant.OWN_API_KEY)
+                        .appendQueryParameter(Constant.API_KEY, getString(R.string.api_key))
                         .appendQueryParameter(Constant.SORT_BY, params[0])
                         .build();
 

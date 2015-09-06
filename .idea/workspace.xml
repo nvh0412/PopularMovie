@@ -10,18 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf32425f-0f6f-4fb9-855e-c556a584d679" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/SettingActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/xml/pref_general.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/gradle_project_sync_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/gradle_project_sync_data.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/DetailActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/DetailActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/Constant.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/Constant.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/DetailActivityFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/DetailActivityFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/HomeMovieFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/HomeMovieFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_detail.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_21_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_21_0_2.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PopularMovie.iws" />
@@ -47,21 +40,10 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/DetailActivityFragment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="131" column="66" selection-start-line="131" selection-start-column="66" selection-end-line="131" selection-end-column="66" />
+              <caret line="98" column="21" selection-start-line="98" selection-start-column="21" selection-end-line="98" selection-end-column="21" />
               <folding>
-                <element signature="e#5390#5391#0" expanded="true" />
-                <element signature="e#5425#5426#0" expanded="true" />
+                <element signature="e#2977#3004#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/ImageAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="70" column="31" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="31" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -69,8 +51,8 @@
       <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.3392857">
-              <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+            <state vertical-scroll-proportion="-1.6071428">
+              <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -79,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fragment_detail.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="fragment_detail.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_detail.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.6030535">
-              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+            <state vertical-scroll-proportion="-9.310345">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
                 <element signature="e#1693#1730#0" expanded="true" />
                 <element signature="e#1767#1802#0" expanded="true" />
@@ -98,15 +80,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pref_general.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/pref_general.xml">
+      <file leaf-file-name="Constant.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/Constant.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="58" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="58" />
-              <folding>
-                <element signature="e#160#188#0" expanded="false" />
-                <element signature="e#209#235#0" expanded="false" />
-              </folding>
+              <caret line="10" column="51" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -114,8 +93,18 @@
       <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.6">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state vertical-scroll-proportion="-10.2">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.15113351">
+              <caret line="4" column="105" selection-start-line="4" selection-start-column="105" selection-end-line="4" selection-end-column="105" />
               <folding />
             </state>
           </provider>
@@ -135,11 +124,13 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/HomeMovieFragment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+              <caret line="94" column="91" selection-start-line="94" selection-start-column="64" selection-end-line="94" selection-end-column="91" />
               <folding>
+                <element signature="e#1515#1954#0" expanded="true" />
+                <element signature="e#1953#1954#0" expanded="true" />
                 <element signature="e#2447#2483#0" expanded="true" />
                 <element signature="e#2485#2525#0" expanded="true" />
-                <element signature="class#MoviePopularTask#0;class#HomeMovieFragment#0" expanded="false" />
+                <element signature="e#3331#3358#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1517,7 +1508,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/MainActivityFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/MovieDetail.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/Constant.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/MovieUtils.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/SettingsActivity.java" />
@@ -1526,13 +1516,15 @@
         <option value="$PROJECT_DIR$/app/src/main/res/xml/pref_general.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/ImageAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/HomeMovieFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/SettingActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/DetailActivityFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/DetailActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_detail.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/Constant.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/HomeMovieFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/DetailActivityFragment.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -1731,7 +1723,7 @@
     <property name="FullScreen" value="true" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="Image&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/java/com/udacity/hoanv/popularmovie/ImageAdapter.java&#10;Detail&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/res/layout/fragment_detail.xml&#10;strings.xml&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/res/values/strings.xml&#10;Hom&#9;PSI&#9;JAVA://com.udacity.hoanv.popularmovie.HomeMovieFragment&#10;HomeMo&#9;null&#9;null&#10;MainAc&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/java/com/udacity/hoanv/popularmovie/MainActivity.java&#10;string.xml&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/res/values/strings.xml&#10;Movi&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/java/com/udacity/hoanv/popularmovie/MovieUtils.java&#10;String&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/res/values/strings.xml&#10;ImageA&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/java/com/udacity/hoanv/popularmovie/ImageAdapter.java&#10;MovieUt&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/java/com/udacity/hoanv/popularmovie/MovieUtils.java&#10;Con&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/java/com/udacity/hoanv/popularmovie/Constant.java&#10;main&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/res/layout/activity_main.xml&#10;menu&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/res/menu/menu_main.xml&#10;MovieUti&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/java/com/udacity/hoanv/popularmovie/MovieUtils.java&#10;build.gra&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/build.gradle" />
+    <property name="SearchEverywhereHistoryKey" value="READ&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/README.md&#10;Detail&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/java/com/udacity/hoanv/popularmovie/DetailActivityFragment.java&#10;Home&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/java/com/udacity/hoanv/popularmovie/HomeMovieFragment.java&#10;Constan&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/java/com/udacity/hoanv/popularmovie/Constant.java&#10;Image&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/java/com/udacity/hoanv/popularmovie/ImageAdapter.java&#10;strings.xml&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/res/values/strings.xml&#10;Hom&#9;PSI&#9;JAVA://com.udacity.hoanv.popularmovie.HomeMovieFragment&#10;HomeMo&#9;null&#9;null&#10;MainAc&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/java/com/udacity/hoanv/popularmovie/MainActivity.java&#10;string.xml&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/res/values/strings.xml&#10;Movi&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/java/com/udacity/hoanv/popularmovie/MovieUtils.java&#10;String&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/res/values/strings.xml&#10;ImageA&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/java/com/udacity/hoanv/popularmovie/ImageAdapter.java&#10;MovieUt&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/java/com/udacity/hoanv/popularmovie/MovieUtils.java&#10;Con&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/java/com/udacity/hoanv/popularmovie/Constant.java&#10;main&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/res/layout/activity_main.xml&#10;menu&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/res/menu/menu_main.xml&#10;MovieUti&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/src/main/java/com/udacity/hoanv/popularmovie/MovieUtils.java&#10;build.gra&#9;FILE&#9;file:///Users/HoaNV/GitHub/udacity/android/PopularMovie/app/build.gradle" />
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
   </component>
@@ -1951,7 +1943,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1966,7 +1958,7 @@
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286119" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36260623" sideWeight="0.773021" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36260623" sideWeight="0.773021" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286119" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2014,18 +2006,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/HomeMovieFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="133" column="39" selection-start-line="133" selection-start-column="39" selection-end-line="133" selection-end-column="39" />
-          <folding>
-            <element signature="e#2447#2483#0" expanded="true" />
-            <element signature="e#2485#2525#0" expanded="true" />
-            <element signature="class#MoviePopularTask#0;class#HomeMovieFragment#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2041,7 +2021,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="25" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="25" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2051,9 +2031,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="109" column="0" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
           <folding>
+            <element signature="e#1515#1954#0" expanded="true" />
+            <element signature="e#1953#1954#0" expanded="true" />
             <element signature="e#2447#2483#0" expanded="true" />
             <element signature="e#2485#2525#0" expanded="true" />
-            <element signature="class#MoviePopularTask#0;class#HomeMovieFragment#0" expanded="false" />
+            <element signature="e#3331#3358#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2080,7 +2062,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2090,9 +2072,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
           <folding>
+            <element signature="e#1515#1954#0" expanded="true" />
+            <element signature="e#1953#1954#0" expanded="true" />
             <element signature="e#2447#2483#0" expanded="true" />
             <element signature="e#2485#2525#0" expanded="true" />
-            <element signature="class#MoviePopularTask#0;class#HomeMovieFragment#0" expanded="false" />
+            <element signature="e#3331#3358#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2203,6 +2187,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7057357">
           <caret line="200" column="33" selection-start-line="200" selection-start-column="33" selection-end-line="200" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2226,13 +2211,6 @@
       </provider>
       <provider editor-type-id="android-designer">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/Constant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
-        </state>
       </provider>
     </entry>
     <entry file="android-dummy://PopularMovie/app/Translations Editor">
@@ -2333,7 +2311,7 @@
         <state vertical-scroll-proportion="0.57345974">
           <caret line="42" column="41" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2362,26 +2340,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/SettingActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="61" selection-start-line="38" selection-start-column="56" selection-end-line="38" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/HomeMovieFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-          <folding>
-            <element signature="e#2447#2483#0" expanded="true" />
-            <element signature="e#2485#2525#0" expanded="true" />
-            <element signature="class#MoviePopularTask#0;class#HomeMovieFragment#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/MovieDetail.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2400,37 +2358,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/pref_general.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.21327014">
           <caret line="6" column="58" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="58" />
-          <folding>
-            <element signature="e#160#188#0" expanded="false" />
-            <element signature="e#209#235#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.6">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/DetailActivityFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="131" column="66" selection-start-line="131" selection-start-column="66" selection-end-line="131" selection-end-column="66" />
-          <folding>
-            <element signature="e#5390#5391#0" expanded="true" />
-            <element signature="e#5425#5426#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/ImageAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.92890996">
           <caret line="70" column="31" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="31" />
           <folding />
         </state>
@@ -2438,8 +2374,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3392857">
-          <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+        <state vertical-scroll-proportion="-1.6071428">
+          <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -2449,8 +2385,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_detail.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6030535">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        <state vertical-scroll-proportion="-9.310345">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
             <element signature="e#1693#1730#0" expanded="true" />
             <element signature="e#1767#1802#0" expanded="true" />
@@ -2462,6 +2398,62 @@
       </provider>
       <provider editor-type-id="android-designer">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/SettingActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="61" selection-start-line="38" selection-start-column="56" selection-end-line="38" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/Constant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="51" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/HomeMovieFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="94" column="91" selection-start-line="94" selection-start-column="64" selection-end-line="94" selection-end-column="91" />
+          <folding>
+            <element signature="e#1515#1954#0" expanded="true" />
+            <element signature="e#1953#1954#0" expanded="true" />
+            <element signature="e#2447#2483#0" expanded="true" />
+            <element signature="e#2485#2525#0" expanded="true" />
+            <element signature="e#3331#3358#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/udacity/hoanv/popularmovie/DetailActivityFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="98" column="21" selection-start-line="98" selection-start-column="21" selection-end-line="98" selection-end-column="21" />
+          <folding>
+            <element signature="e#2977#3004#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.2">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15113351">
+          <caret line="4" column="105" selection-start-line="4" selection-start-column="105" selection-end-line="4" selection-end-column="105" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

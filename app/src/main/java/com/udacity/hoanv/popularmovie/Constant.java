@@ -9,7 +9,6 @@ public class Constant {
     public static final String MOVIE_DETAIL_URL = "http://api.themoviedb.org/3/movie/";
 
     public static final String API_KEY = "api_key";
-    public static final String OWN_API_KEY = "38a73981d5e8bc34978f3a9d569fe223";
     public static final String SORT_BY = "sort_by";
 
     /* ----------------------- MOVIE LIST --------------------------------- */
