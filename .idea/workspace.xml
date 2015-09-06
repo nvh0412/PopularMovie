@@ -88,9 +88,11 @@
       <file leaf-file-name="strings.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.52896726">
-              <caret line="14" column="58" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
-              <folding />
+            <state vertical-scroll-proportion="0.56675065">
+              <caret line="15" column="59" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="59" />
+              <folding>
+                <marker date="1441531803000" expanded="true" signature="829:909" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -2445,9 +2447,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52896726">
-          <caret line="14" column="58" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
-          <folding />
+        <state vertical-scroll-proportion="0.56675065">
+          <caret line="15" column="59" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="59" />
+          <folding>
+            <marker date="1441531803000" expanded="true" signature="829:909" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
