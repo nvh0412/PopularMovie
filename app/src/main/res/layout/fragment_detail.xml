@@ -32,6 +32,8 @@
                 android:id="@+id/movie_poster"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minHeight="250dp"
+                android:minWidth="170dp"
                 android:contentDescription="@string/movie_thumbnail_description"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:paddingRight="@dimen/activity_horizontal_margin"

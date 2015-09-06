@@ -6,4 +6,11 @@
     <string name="manufactur_year">2015</string>
     <string name="movie_runtime">110</string>
     <string name="movie_favorite">MARK AS \nFAVORITE</string>
+    <string name="pref_sort_by_key">sortBy</string>
+    <string name="pref_sort_by_popular">popularity.desc</string>
+    <string name="pref_sort_by_popular_label">Popular</string>
+    <string name="pref_sort_by_rate">vote_average.desc</string>
+    <string name="pref_sort_by_rate_label">Highest rate</string>
+    <string name="pref_sort_by_title">Sort By</string>
+    <string name="title_activity_setting">Setting</string>
 </resources>

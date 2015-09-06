@@ -1,9 +1,11 @@
 package com.udacity.hoanv.popularmovie;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -43,6 +45,7 @@ public class HomeMovieFragment extends Fragment {
             gridView.setAdapter(imageAdapter);
 
             gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Intent detailIntent = new Intent(getActivity(), DetailActivity.class);
@@ -51,16 +54,27 @@ public class HomeMovieFragment extends Fragment {
                 }
 
             });
-            //run task for get result from API
-            new MoviePopularTask().execute("popularity.desc");
         }
         return fragment;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        updateScreen();
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+    }
+
+    public void updateScreen() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String sortByValue = sharedPreferences.getString(getString(R.string.pref_sort_by_key), getString(R.string.pref_sort_by_popular));
+        MoviePopularTask popularTask = new MoviePopularTask();
+        popularTask.execute(sortByValue);
     }
 
     public class MoviePopularTask extends AsyncTask<String, Void, List<MovieThumbnail>>{

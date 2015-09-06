@@ -138,18 +138,6 @@ public class DetailActivityFragment extends Fragment {
 
         @Override
         protected String doInBackground(Long... longs) {
-            HttpURLConnection conn = null;
-            BufferedReader bufferedReader = null;
-            URL urlTrailer = null;
-
-//            try {
-//                //conn = (HttpURLConnection) urlTrailer.openConnection();
-//                bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-//
-//            } catch (IOException e) {
-//                Log.e(TAG_LOG, "ERROR : " + e.getMessage(), e);
-//                e.printStackTrace();
-//            }
             return null;
         }
 
