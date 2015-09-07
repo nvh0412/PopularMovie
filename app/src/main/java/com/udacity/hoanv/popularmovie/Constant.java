@@ -5,7 +5,7 @@ package com.udacity.hoanv.popularmovie;
  */
 public class Constant {
 
-    public static final String MOVIE_BASE_URL = "http://api.themoviedb.org/3/discover/movie?";
+    public static final String MOVIE_BASE_URL = "http://api.themoviedb.org/3/";
     public static final String MOVIE_DETAIL_URL = "http://api.themoviedb.org/3/movie/";
 
     public static final String API_KEY = "api_key";

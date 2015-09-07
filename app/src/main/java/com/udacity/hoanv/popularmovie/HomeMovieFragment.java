@@ -2,10 +2,10 @@ package com.udacity.hoanv.popularmovie;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,24 +14,27 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-import org.json.JSONException;
+import com.udacity.hoanv.popularmovie.Entity.DiscoverMovie;
+import com.udacity.hoanv.popularmovie.Entity.DiscoverMovieResult;
+import com.udacity.hoanv.popularmovie.service.MovieDBService;
+import com.udacity.hoanv.popularmovie.service.WebService;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit.Call;
 
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class HomeMovieFragment extends Fragment {
+public class HomeMovieFragment extends Fragment implements OnAsyncTaskCompleted {
 
     private static final String TAG_LOG = HomeMovieFragment.class.getSimpleName();
     private ImageAdapter imageAdapter;
+    private DialogFragment dialogFragment;
+
     public HomeMovieFragment() {
     }
 
@@ -41,7 +44,7 @@ public class HomeMovieFragment extends Fragment {
         View fragment = inflater.inflate(R.layout.fragment_main, container, false);
         if(fragment != null) {
             GridView gridView = (GridView) fragment.findViewById(R.id.movie_gridview);
-            imageAdapter = new ImageAdapter(gridView, getActivity(), new ArrayList<MovieThumbnail>());
+            imageAdapter = new ImageAdapter(getActivity(), new ArrayList<DiscoverMovie>());
             gridView.setAdapter(imageAdapter);
 
             gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -73,77 +76,57 @@ public class HomeMovieFragment extends Fragment {
     public void updateScreen() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String sortByValue = sharedPreferences.getString(getString(R.string.pref_sort_by_key), getString(R.string.pref_sort_by_popular));
-        MoviePopularTask popularTask = new MoviePopularTask();
+        MoviePopularTask popularTask = new MoviePopularTask(this);
         popularTask.execute(sortByValue);
     }
 
-    public class MoviePopularTask extends AsyncTask<String, Void, List<MovieThumbnail>>{
+    @Override
+    public void onTaskCompleted(List<DiscoverMovie> result) {
+        imageAdapter.clear();
+        imageAdapter.setMovieThumbnailList(result);
+    }
+
+    public class MoviePopularTask extends AsyncTask<String, Void, List<DiscoverMovie>>{
 
         private final String TAG_LOG = MoviePopularTask.class.getSimpleName();
+        private OnAsyncTaskCompleted taskListener;
+
+        public MoviePopularTask(OnAsyncTaskCompleted taskListener) {
+            this.taskListener = taskListener;
+        }
 
         @Override
-        protected List<MovieThumbnail> doInBackground(String... params) {
-            String movieJsonStr = null;
-            HttpURLConnection conn = null;
-            URL urlConn = null;
-            BufferedReader bufferedReader = null;
-
-            try {
-                //Build URL Path by Uri Builder
-                //Set API_KEY and sort_by parameter.
-                Uri uriBuilder = Uri.parse(Constant.MOVIE_BASE_URL).buildUpon()
-                        .appendQueryParameter(Constant.API_KEY, getString(R.string.api_key))
-                        .appendQueryParameter(Constant.SORT_BY, params[0])
-                        .build();
-
-                //Initialize url
-                urlConn = new URL(uriBuilder.toString());
-
-                //Open connection to MovieAPI.
-                conn = (HttpURLConnection) urlConn.openConnection();
-
-                //Get buffer from result which has been returned by call api
-                bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-
-                //Read data
-                StringBuffer buffer = new StringBuffer();
-                String line;
-                while ((line = bufferedReader.readLine()) != null) {
-                    buffer.append(line);
-                }
-
-                movieJsonStr = buffer.toString();
-            } catch (IOException e) {
-                Log.e(TAG_LOG, "ERROR: " + e.getMessage(), e);
-                e.printStackTrace();
-            } finally {
-                if (conn != null) {
-                    conn.disconnect();
-                }
-                if(bufferedReader != null){
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException e) {
-                        Log.e(TAG_LOG, "ERROR: " + e.getMessage(), e);
-                        e.printStackTrace();
-                    }
-                }
+        protected List<DiscoverMovie> doInBackground(String... params) {
+            if(params == null || params.length == 0){
+                Log.i(TAG_LOG, "MoviePopularTask has been null params");
+                return null;
             }
 
+            dialogFragment = ProgressDialogFragment.getInstance();
+            dialogFragment.show(getFragmentManager(), "Loading");
+
+            //Call API from TheMovieDB by Retrofit Library
+            MovieDBService movieDBService = WebService.getMovieDBService();
+            Call<DiscoverMovieResult> call = movieDBService.listMovieThumbnail(getString(R.string.api_key), params[0]);
+
             try {
-                return MovieUtils.getThumbnailFromJson(movieJsonStr);
-            } catch (JSONException e) {
-                Log.e(TAG_LOG, "ERROR: " + e.getMessage(), e);
+                DiscoverMovieResult discoverMovieResult = call.execute().body();
+                return discoverMovieResult.getResults();
+            } catch (IOException e) {
+                Log.e(TAG_LOG, "ERROR", e);
+                e.printStackTrace();
                 return null;
             }
         }
 
         @Override
-        protected void onPostExecute(List<MovieThumbnail> result) {
+        protected void onPostExecute(List<DiscoverMovie> result) {
             super.onPostExecute(result);
+            if(dialogFragment != null){
+                dialogFragment.dismiss();
+            }
             if (imageAdapter != null) {
-                imageAdapter.clear();
-                imageAdapter.setMovieThumbnailList(result);
+                taskListener.onTaskCompleted(result);
             }
         }
     }

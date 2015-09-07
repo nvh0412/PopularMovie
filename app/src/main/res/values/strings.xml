@@ -14,4 +14,5 @@
     <string name="pref_sort_by_title">Sort By</string>
     <string name="title_activity_setting">Setting</string>
     <string name="api_key"></string>
+    <string name="thumbnail_description">Thumbnail</string>
 </resources>
