@@ -11,7 +11,7 @@ public class TestDB extends AndroidTestCase{
 
     // Clear database before you do anything.
     public void deleteDatabase(){
-        mContext.deleteDatabase("");
+        mContext.deleteDatabase(MovieDBHelper.DATABASE_NAME);
     }
 
     /**
@@ -27,8 +27,12 @@ public class TestDB extends AndroidTestCase{
     /**
      *
      */
-    public void testCreateDatabase(){
+    public void testCreateDatabase() throws Throwable{
+        MovieDBHelper dbHelper = new MovieDBHelper(mContext);
 
+        //Check table name.
+
+        //Check column name.
     }
 
     /**

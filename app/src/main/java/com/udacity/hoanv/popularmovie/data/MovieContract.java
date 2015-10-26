@@ -13,7 +13,10 @@ public class MovieContract {
 
         public static final String TABLE_NAME = "movie";
 
-        //Title is stored  as a String representing title of movie
+        //Id is stored as a integer representing id of movie
+        public static final String COLUMN_MOVIE_ID = "movie_id";
+
+        //Title is stored as a String representing title of movie
         public static final String COLUMN_TITLE = "title";
 
         //Overview is stored as a String representing overview of movie
