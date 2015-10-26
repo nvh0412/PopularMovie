@@ -18,11 +18,17 @@ public class TestPractice extends AndroidTestCase{
 
     public void testThatDemostratesAssertions(){
         int a = 0;
-        int b = 2;
+        int b = 0;
         int c = 3;
         int d= 10;
 
-        assert
+        assertEquals("X should be equal", a, b);
+        assertTrue("Y should be true", a < d);
+        assertFalse("Z should be false", c > d);
+
+        if(b > d){
+            fail("XX should never happen");
+        }
     }
 
     @Override
