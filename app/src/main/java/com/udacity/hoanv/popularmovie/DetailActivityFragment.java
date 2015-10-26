@@ -87,6 +87,7 @@ public class DetailActivityFragment extends Fragment{
             MovieDBService movieDBService = WebService.getMovieDBService();
             Call<MovieDetail> call = movieDBService.getMovieDetail(params[0], getString(R.string.api_key));
             try {
+                Log.d(TAG_LOG, "Call API with param: " + params[0]);
                 return call.execute().body();
             } catch (IOException e) {
                 Log.e(TAG_LOG, "ERROR", e);

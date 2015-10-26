@@ -41,6 +41,7 @@ public class HomeMovieFragment extends Fragment implements OnAsyncTaskCompleted 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Log.d(TAG_LOG, "HomeMovieFragment onCreateView");
         View fragment = inflater.inflate(R.layout.fragment_main, container, false);
         if(fragment != null) {
             GridView gridView = (GridView) fragment.findViewById(R.id.movie_gridview);
@@ -63,6 +64,7 @@ public class HomeMovieFragment extends Fragment implements OnAsyncTaskCompleted 
 
     @Override
     public void onStart() {
+        Log.d(TAG_LOG, "HomeMovieFragment onStart");
         super.onStart();
         updateScreen();
     }
@@ -74,6 +76,7 @@ public class HomeMovieFragment extends Fragment implements OnAsyncTaskCompleted 
     }
 
     public void updateScreen() {
+        Log.d(TAG_LOG, "HomeMovieFragment updateScreen");
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String sortByValue = sharedPreferences.getString(getString(R.string.pref_sort_by_key), getString(R.string.pref_sort_by_popular));
         MoviePopularTask popularTask = new MoviePopularTask(this);
@@ -82,6 +85,7 @@ public class HomeMovieFragment extends Fragment implements OnAsyncTaskCompleted 
 
     @Override
     public void onTaskCompleted(List<DiscoverMovie> result) {
+        Log.d(TAG_LOG, "HomeMovieFragment onTaskCompleted");
         imageAdapter.clear();
         imageAdapter.setMovieThumbnailList(result);
     }
@@ -110,8 +114,8 @@ public class HomeMovieFragment extends Fragment implements OnAsyncTaskCompleted 
             Call<DiscoverMovieResult> call = movieDBService.listMovieThumbnail(getString(R.string.api_key), params[0]);
 
             try {
-                DiscoverMovieResult discoverMovieResult = call.execute().body();
-                return discoverMovieResult.getResults();
+                Log.d(TAG_LOG, "CALL API with param : " + params[0]);
+                return call.execute().body().getResults();
             } catch (IOException e) {
                 Log.e(TAG_LOG, "ERROR", e);
                 e.printStackTrace();
@@ -121,6 +125,7 @@ public class HomeMovieFragment extends Fragment implements OnAsyncTaskCompleted 
 
         @Override
         protected void onPostExecute(List<DiscoverMovie> result) {
+            Log.d(TAG_LOG, "MoviePopularTask onPostExecute");
             super.onPostExecute(result);
             if(dialogFragment != null){
                 dialogFragment.dismiss();
