@@ -1,6 +1,7 @@
 package com.udacity.hoanv.popularmovie;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -8,6 +9,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
+import com.udacity.hoanv.popularmovie.Entity.DiscoverMovie;
 
 import java.util.List;
 
@@ -17,39 +19,37 @@ import java.util.List;
 public class ImageAdapter extends BaseAdapter {
 
     private static final String TAG_LOG = ImageAdapter.class.getSimpleName();
-    private List<MovieThumbnail> movieThumbnailList;
+    private List<DiscoverMovie> discoverMovieList;
     private Context mContext;
-    private View parentView;
 
-    public ImageAdapter(View parentView,Context mContext,List<MovieThumbnail> movieThumbnailList) {
-        this.movieThumbnailList = movieThumbnailList;
+    public ImageAdapter(Context mContext,List<DiscoverMovie> discoverMovieList) {
+        this.discoverMovieList = discoverMovieList;
         this.mContext = mContext;
-        this.parentView = parentView;
     }
 
     public void clear(){
-        movieThumbnailList.clear();
+        discoverMovieList.clear();
         notifyDataSetChanged();
     }
 
-    public void setMovieThumbnailList(List<MovieThumbnail> movieThumbnailList) {
-        this.movieThumbnailList = movieThumbnailList;
+    public void setMovieThumbnailList(List<DiscoverMovie> discoverMovieList) {
+        this.discoverMovieList = discoverMovieList;
         notifyDataSetChanged();
     }
 
     @Override
     public int getCount() {
-        return movieThumbnailList.size();
+        return discoverMovieList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return movieThumbnailList.get(position);
+        return discoverMovieList.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return movieThumbnailList.get(position).getId();
+        return discoverMovieList.get(position).getId();
     }
 
     @Override
@@ -57,18 +57,18 @@ public class ImageAdapter extends BaseAdapter {
         ImageView imageView;
         if (convertView == null) {
             // If it isn't recycled, initialize some attributes.
-            imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new GridView.LayoutParams(
-                    parentView.getWidth() / 2,
-                    parentView.getHeight() / 2));
+            LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            imageView = (ImageView) inflater.inflate(R.layout.thumbnail_movie, null);
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            imageView.setLayoutParams(new GridView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         } else {
             imageView = (ImageView) convertView;
         }
 
-        MovieThumbnail item = movieThumbnailList.get(position);
-        Picasso.with(mContext).load(Constant.THUMBNAIL_BASE_URL + item.getUrlThumbnail())
+        DiscoverMovie item = discoverMovieList.get(position);
+        Picasso.with(mContext).load(Constant.THUMBNAIL_BASE_URL + item.getPosterPath())
                 .into(imageView);
         return imageView;
     }
+
 }
