@@ -95,17 +95,18 @@ public class TestDB extends AndroidTestCase{
 
         //Four Step: Query and check ID
         Cursor cursor = db.query(MovieContract.MovieEntry.TABLE_NAME,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null);
+                null, // All columns
+                null, // Column for the where clause
+                null, // Values for column of where clauses.
+                null, // Columns for groupBy
+                null, // Value for groupBy
+                null); // OrderBy
 
         assertTrue("Cursor should be not empty", cursor.moveToFirst());
 
         //Fifth step: Validate data from db with contentValues
-        TestUtilities.validateCurrentRecord(cursor, testValues);
+        TestUtilities.validateRecord("Value from dabase has to match with dumb of content value",
+                cursor, testValues);
 
         //Check only this record in database.
         assertFalse("More than one records returned from location query", cursor.moveToNext());
