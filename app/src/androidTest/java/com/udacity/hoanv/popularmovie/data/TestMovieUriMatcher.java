@@ -16,4 +16,9 @@ public class TestMovieUriMatcher extends AndroidTestCase {
     protected void tearDown() throws Exception {
         super.tearDown();
     }
+
+    public void testUriMatcher(){
+
+    }
+
 }

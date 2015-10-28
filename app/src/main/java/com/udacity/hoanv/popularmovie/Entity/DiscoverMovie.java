@@ -8,6 +8,7 @@ import com.google.gson.annotations.SerializedName;
 public class DiscoverMovie {
 
     private Integer id;
+
     @SerializedName("poster_path")
     private String posterPath;
 

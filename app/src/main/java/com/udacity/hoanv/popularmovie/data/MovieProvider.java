@@ -2,6 +2,7 @@ package com.udacity.hoanv.popularmovie.data;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.UriMatcher;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.annotation.Nullable;
@@ -11,20 +12,24 @@ import android.support.annotation.Nullable;
  */
 public class MovieProvider extends ContentProvider {
 
+    private MovieDBHelper movieDB;
+
     @Override
     public boolean onCreate() {
+        movieDB = new MovieDBHelper(getContext());
         return false;
     }
 
     @Nullable
     @Override
-    public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
+    public String getType(Uri uri) {
+        UriMatcher uriMatcher = buildUriMatcher(uri);
         return null;
     }
 
     @Nullable
     @Override
-    public String getType(Uri uri) {
+    public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
         return null;
     }
 
@@ -42,5 +47,9 @@ public class MovieProvider extends ContentProvider {
     @Override
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
         return 0;
+    }
+
+    public UriMatcher buildUriMatcher(Uri uri){
+        return null;
     }
 }

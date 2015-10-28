@@ -1,5 +1,8 @@
 package com.udacity.hoanv.popularmovie.data;
 
+import android.content.ContentResolver;
+import android.content.ContentUris;
+import android.net.Uri;
 import android.provider.BaseColumns;
 
 /**
@@ -9,7 +12,20 @@ import android.provider.BaseColumns;
  */
 public class MovieContract {
 
+    /** Authority string for this provider */
+    public static final String AUTHORITY = "com.udacity.hoanv.popularmovie";
+
+    public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + AUTHORITY);
+
+    public static final String PATH_MOVIE = "movie";
+
     public static final class MovieEntry implements BaseColumns {
+
+        public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_MOVIE).build();
+
+        public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + AUTHORITY + "/" + PATH_MOVIE;
+
+        public static final String CONTENT_TYPE_ITEM = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + AUTHORITY + "/" + PATH_MOVIE;
 
         public static final String TABLE_NAME = "movie";
 
@@ -31,6 +47,20 @@ public class MovieContract {
         //Poster path is stored as a String representing URL of movie's poster.
         public static final String COLUMN_POSTER_PATH = "poster_path";
 
+        //function for create URI for movie
+        public static Uri buildMovieUri(int id) {
+            return ContentUris.withAppendedId(CONTENT_URI, id);
+        }
+
+        public static Uri buildMovieWithOrder(String order) {
+            return CONTENT_URI.buildUpon().appendPath(order).build();
+        }
+
+        public static String getOrderFromUri(Uri uri){
+            return uri.getPathSegments().get(0);
+        }
     }
+
+
 
 }
