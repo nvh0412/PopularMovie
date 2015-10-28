@@ -19,6 +19,8 @@ import com.udacity.hoanv.popularmovie.service.WebService;
 
 import java.io.IOException;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import retrofit.Call;
 
 
@@ -29,12 +31,12 @@ public class DetailActivityFragment extends Fragment{
 
     private final static String TAG_LOG = DetailActivityFragment.class.getSimpleName();
     private Long idMovie;
-    private ImageView posterImageView = null;
-    private TextView movieTitleView = null;
-    private TextView manufacturerYearView = null;
-    private TextView runtimeView = null;
-    private TextView voteAverageView = null;
-    private TextView overviewTextView = null;
+    @Bind(R.id.movie_poster) ImageView posterImageView = null;
+    @Bind(R.id.movie_title) TextView movieTitleView = null;
+    @Bind(R.id.movie_manufacturer_year) TextView manufacturerYearView = null;
+    @Bind(R.id.movie_runtime) TextView runtimeView = null;
+    @Bind(R.id.movie_vote_average) TextView voteAverageView = null;
+    @Bind(R.id.movie_overview) TextView overviewTextView = null;
     private DialogFragment dialogFragment;
 
     public DetailActivityFragment() {
@@ -61,12 +63,7 @@ public class DetailActivityFragment extends Fragment{
                              Bundle savedInstanceState) {
         View detailFragment = inflater.inflate(R.layout.fragment_detail, container, false);
         if (detailFragment != null) {
-            movieTitleView = (TextView)detailFragment.findViewById(R.id.movie_title);
-            runtimeView = (TextView) detailFragment.findViewById(R.id.movie_runtime);
-            voteAverageView = (TextView) detailFragment.findViewById(R.id.movie_vote_average);
-            posterImageView = (ImageView) detailFragment.findViewById(R.id.movie_poster);
-            manufacturerYearView = (TextView) detailFragment.findViewById(R.id.movie_manufacturer_year);
-            overviewTextView = (TextView) detailFragment.findViewById(R.id.movie_overview);
+            ButterKnife.bind(this, detailFragment);
         }
         return detailFragment;
     }
