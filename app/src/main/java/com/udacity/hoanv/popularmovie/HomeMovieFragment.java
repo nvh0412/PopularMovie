@@ -23,6 +23,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import retrofit.Call;
 
 
@@ -34,6 +36,7 @@ public class HomeMovieFragment extends Fragment implements OnAsyncTaskCompleted 
     private static final String TAG_LOG = HomeMovieFragment.class.getSimpleName();
     private ImageAdapter imageAdapter;
     private DialogFragment dialogFragment;
+    @Bind(R.id.movie_gridview) GridView gridView;
 
     public HomeMovieFragment() {
     }
@@ -44,7 +47,7 @@ public class HomeMovieFragment extends Fragment implements OnAsyncTaskCompleted 
         Log.d(TAG_LOG, "HomeMovieFragment onCreateView");
         View fragment = inflater.inflate(R.layout.fragment_main, container, false);
         if(fragment != null) {
-            GridView gridView = (GridView) fragment.findViewById(R.id.movie_gridview);
+            ButterKnife.bind(this, fragment);
             imageAdapter = new ImageAdapter(getActivity(), new ArrayList<DiscoverMovie>());
             gridView.setAdapter(imageAdapter);
 

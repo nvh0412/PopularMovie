@@ -35,7 +35,8 @@ public class TestUtilities extends AndroidTestCase{
             int idx = cursor.getColumnIndex(columnName);
             assertTrue("Database doesn't contain all of the required column", idx != -1);
             String expectedValue = value.getValue().toString();
-            assertEquals("Value " + cursor.getString(idx) + " doesn't match with " + expectedValue,
+            assertEquals("Value " + cursor.getString(idx) + " doesn't match with " + expectedValue
+                            + ". Error:" + error,
                     value.getValue().toString(), cursor.getString(idx));
         }
     }

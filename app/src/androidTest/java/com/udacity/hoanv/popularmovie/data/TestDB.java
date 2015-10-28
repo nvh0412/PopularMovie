@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.test.AndroidTestCase;
+import android.util.Log;
 
 import java.util.HashSet;
 
@@ -26,6 +27,7 @@ public class TestDB extends AndroidTestCase{
      */
     @Override
     protected void setUp() throws Exception {
+        Log.i(LOG_TAG, "TestDB Setup");
         deleteDatabase();
     }
 
@@ -33,6 +35,7 @@ public class TestDB extends AndroidTestCase{
      *
      */
     public void testCreateDatabase() throws Throwable{
+        Log.i(LOG_TAG, "TestDB testCreateDatabase");
         MovieDBHelper dbHelper = new MovieDBHelper(mContext);
 
         final HashSet<String> tableNameSet = new HashSet<>();
@@ -54,6 +57,7 @@ public class TestDB extends AndroidTestCase{
 
         //Check column name.
         cursor = sqLiteDatabase.rawQuery("PRAGMA table_info(" + MovieContract.MovieEntry.TABLE_NAME + ")", null);
+        assertTrue("Cursor should can move to first", cursor.moveToFirst());
 
         final HashSet<String> columnNameSet = new HashSet<String>();
         columnNameSet.add(MovieContract.MovieEntry._ID);
@@ -66,7 +70,7 @@ public class TestDB extends AndroidTestCase{
         int columnNameIndex = cursor.getColumnIndex("name");
         do{
             columnNameSet.remove(cursor.getString(columnNameIndex));
-        }while(cursor.moveToNext());
+        } while(cursor.moveToNext());
 
         assertTrue("Error: The datase doesn't contain all of the required movie entry columns",
                 columnNameSet.isEmpty());
@@ -79,6 +83,7 @@ public class TestDB extends AndroidTestCase{
      *
      */
     public void testMovideTable() {
+        Log.i(LOG_TAG, "TestDB testMovieTable");
         MovieDBHelper dbHelper = new MovieDBHelper(mContext);
 
         //First step: Get reference to writable database
