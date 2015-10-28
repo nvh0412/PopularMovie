@@ -31,7 +31,7 @@ public class MovieDBHelper extends SQLiteOpenHelper {
                         MovieContract.MovieEntry.COLUMN_OVERVIEW + " TEXT," +
                         MovieContract.MovieEntry.COLUMN_RUNTIME + " INTEGER," +
                         MovieContract.MovieEntry.COLUMN_POSTER_PATH + " TEXT," +
-                        MovieContract.MovieEntry.COLUMN_RELEASE_DATE + " TEXT";
+                        MovieContract.MovieEntry.COLUMN_RELEASE_DATE + " TEXT )";
         db.execSQL(SQL_CREATE_SCHEMA_MOVIE);
     }
 
