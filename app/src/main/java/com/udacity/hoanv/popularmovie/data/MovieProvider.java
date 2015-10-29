@@ -14,6 +14,8 @@ public class MovieProvider extends ContentProvider {
 
     private MovieDBHelper movieDB;
 
+    private static final UriMatcher sUriMatcher = buildUriMatcher();
+
     @Override
     public boolean onCreate() {
         movieDB = new MovieDBHelper(getContext());
@@ -23,7 +25,19 @@ public class MovieProvider extends ContentProvider {
     @Nullable
     @Override
     public String getType(Uri uri) {
-        UriMatcher uriMatcher = buildUriMatcher(uri);
+        if (uri == null) {
+            return null;
+        }
+
+        int match = sUriMatcher.match(uri);
+        switch (match) {
+            case MovieContract.MovieEntry.MOVIE:
+                return MovieContract.MovieEntry.CONTENT_TYPE;
+            case MovieContract.MovieEntry.MOVIE_ORDER:
+                return MovieContract.MovieEntry.CONTENT_TYPE;
+            case MovieContract.MovieEntry.MOVIE_DETAIL:
+                return MovieContract.MovieEntry.CONTENT_TYPE_ITEM;
+        }
         return null;
     }
 
@@ -49,7 +63,12 @@ public class MovieProvider extends ContentProvider {
         return 0;
     }
 
-    public UriMatcher buildUriMatcher(Uri uri){
-        return null;
+    public static UriMatcher buildUriMatcher() {
+        final UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+        String authority = MovieContract.AUTHORITY;
+        uriMatcher.addURI(authority, MovieContract.PATH_MOVIE, MovieContract.MovieEntry.MOVIE);
+        uriMatcher.addURI(authority, MovieContract.PATH_MOVIE + "/#", MovieContract.MovieEntry.MOVIE_DETAIL);
+        uriMatcher.addURI(authority, MovieContract.PATH_MOVIE + "/*", MovieContract.MovieEntry.MOVIE_ORDER);
+        return uriMatcher;
     }
 }

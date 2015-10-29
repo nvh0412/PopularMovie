@@ -1,7 +1,6 @@
 package com.udacity.hoanv.popularmovie.data;
 
 import android.content.ContentResolver;
-import android.content.ContentUris;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
@@ -21,11 +20,18 @@ public class MovieContract {
 
     public static final class MovieEntry implements BaseColumns {
 
+
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_MOVIE).build();
 
         public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + AUTHORITY + "/" + PATH_MOVIE;
 
         public static final String CONTENT_TYPE_ITEM = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + AUTHORITY + "/" + PATH_MOVIE;
+
+        public static final int MOVIE = 100;
+
+        public static final int MOVIE_ORDER = 101;
+
+        public static final int MOVIE_DETAIL = 102;
 
         public static final String TABLE_NAME = "movie";
 
@@ -49,11 +55,15 @@ public class MovieContract {
 
         //function for create URI for movie
         public static Uri buildMovieUri(int id) {
-            return ContentUris.withAppendedId(CONTENT_URI, id);
+            return CONTENT_URI.buildUpon().appendPath(String.valueOf(id)).build();
         }
 
         public static Uri buildMovieWithOrder(String order) {
             return CONTENT_URI.buildUpon().appendPath(order).build();
+        }
+
+        public static Uri buildMovieWithOrderAndId(String order, int movieId){
+            return CONTENT_URI.buildUpon().appendPath(order).appendPath(String.valueOf(movieId)).build();
         }
 
         public static String getOrderFromUri(Uri uri){
