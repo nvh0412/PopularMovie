@@ -16,10 +16,16 @@ public class MovieProvider extends ContentProvider {
 
     private static final UriMatcher sUriMatcher = buildUriMatcher();
 
+    // order by rate DESC or ASC
+    private static final String sMovieOrderRateSelection = "";
+
+    // order by newest DESC or ASC
+    private static final String sMovieOrderReleaseDateSelection = "";
+
     @Override
     public boolean onCreate() {
         movieDB = new MovieDBHelper(getContext());
-        return false;
+        return true;
     }
 
     @Nullable

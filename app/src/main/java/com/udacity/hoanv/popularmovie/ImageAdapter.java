@@ -9,7 +9,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
-import com.udacity.hoanv.popularmovie.Entity.DiscoverMovie;
+import com.udacity.hoanv.popularmovie.Entity.PosterMovie;
 
 import java.util.List;
 
@@ -19,10 +19,10 @@ import java.util.List;
 public class ImageAdapter extends BaseAdapter {
 
     private static final String TAG_LOG = ImageAdapter.class.getSimpleName();
-    private List<DiscoverMovie> discoverMovieList;
+    private List<PosterMovie> discoverMovieList;
     private Context mContext;
 
-    public ImageAdapter(Context mContext,List<DiscoverMovie> discoverMovieList) {
+    public ImageAdapter(Context mContext,List<PosterMovie> discoverMovieList) {
         this.discoverMovieList = discoverMovieList;
         this.mContext = mContext;
     }
@@ -32,7 +32,7 @@ public class ImageAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void setMovieThumbnailList(List<DiscoverMovie> discoverMovieList) {
+    public void setMovieThumbnailList(List<PosterMovie> discoverMovieList) {
         this.discoverMovieList = discoverMovieList;
         notifyDataSetChanged();
     }
@@ -65,7 +65,7 @@ public class ImageAdapter extends BaseAdapter {
             imageView = (ImageView) convertView;
         }
 
-        DiscoverMovie item = discoverMovieList.get(position);
+        PosterMovie item = discoverMovieList.get(position);
         Picasso.with(mContext).load(Constant.THUMBNAIL_BASE_URL + item.getPosterPath())
                 .into(imageView);
         return imageView;

@@ -12,16 +12,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
-import com.udacity.hoanv.popularmovie.Entity.MovieDetail;
 import com.udacity.hoanv.popularmovie.service.MovieDBService;
 import com.udacity.hoanv.popularmovie.service.WebService;
 
-import java.io.IOException;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import retrofit.Call;
 
 
 /**
@@ -68,10 +63,10 @@ public class DetailActivityFragment extends Fragment{
         return detailFragment;
     }
 
-    public class DetailMovieAsyncTask extends AsyncTask<Long, Void, MovieDetail>{
+    public class DetailMovieAsyncTask extends AsyncTask<Long, Void, Void>{
 
         @Override
-        protected MovieDetail doInBackground(Long... params) {
+        protected Void doInBackground(Long... params) {
             if(params == null || params.length == 0){
                 Log.i(TAG_LOG, "DetailMovieAsyncTask has been run without params!");
                 return null;
@@ -82,30 +77,31 @@ public class DetailActivityFragment extends Fragment{
 
             //Call API from TheMovieDB by Retrofit Library
             MovieDBService movieDBService = WebService.getMovieDBService();
-            Call<MovieDetail> call = movieDBService.getMovieDetail(params[0], getString(R.string.api_key));
-            try {
-                Log.d(TAG_LOG, "Call API with param: " + params[0]);
-                return call.execute().body();
-            } catch (IOException e) {
-                Log.e(TAG_LOG, "ERROR", e);
-                e.printStackTrace();
-                return null;
-            }
+//            Call<MovieDetail> call = movieDBService.getMovieDetail(params[0], getString(R.string.api_key));
+//            try {
+//                Log.d(TAG_LOG, "Call API with param: " + params[0]);
+//                return call.execute().body();
+//            } catch (IOException e) {
+//                Log.e(TAG_LOG, "ERROR", e);
+//                e.printStackTrace();
+//                return null;
+//            }
+            return null;
         }
 
-        @Override
-        protected void onPostExecute(MovieDetail detail) {
-            super.onPostExecute(detail);
-            if (detail != null) {
-                Picasso.with(getActivity()).load(Constant.THUMBNAIL_BASE_URL + detail.getPosterPath()).into(posterImageView);
-                movieTitleView.setText(detail.getTitle());
-                runtimeView.setText(Integer.toString(detail.getRuntime()) + "min");
-                manufacturerYearView.setText(MovieUtils.getReadableManufacturerYear(detail.getReleaseDate()));
-                voteAverageView.setText(detail.getVoteAverage() + "/10");
-                overviewTextView.setText(detail.getOverview());
-                dialogFragment.dismiss();
-            }
-        }
+//        @Override
+//        protected void onPostExecute(MovieDetail detail) {
+//            super.onPostExecute(detail);
+//            if (detail != null) {
+//                Picasso.with(getActivity()).load(Constant.THUMBNAIL_BASE_URL + detail.getPosterPath()).into(posterImageView);
+//                movieTitleView.setText(detail.getTitle());
+//                runtimeView.setText(Integer.toString(detail.getRuntime()) + "min");
+//                manufacturerYearView.setText(MovieUtils.getReadableManufacturerYear(detail.getReleaseDate()));
+//                voteAverageView.setText(detail.getVoteAverage() + "/10");
+//                overviewTextView.setText(detail.getOverview());
+//                dialogFragment.dismiss();
+//            }
+//        }
     }
 
     public class TrailerMovieAsyncTask extends AsyncTask<Long, Void, String>{

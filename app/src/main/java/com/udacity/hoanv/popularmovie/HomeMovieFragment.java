@@ -14,14 +14,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-import com.udacity.hoanv.popularmovie.Entity.DiscoverMovie;
-import com.udacity.hoanv.popularmovie.Entity.DiscoverMovieResult;
+import com.udacity.hoanv.popularmovie.Entity.PosterMovieList;
 import com.udacity.hoanv.popularmovie.service.MovieDBService;
 import com.udacity.hoanv.popularmovie.service.WebService;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -31,7 +26,7 @@ import retrofit.Call;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class HomeMovieFragment extends Fragment implements OnAsyncTaskCompleted {
+public class HomeMovieFragment extends Fragment {
 
     private static final String TAG_LOG = HomeMovieFragment.class.getSimpleName();
     private ImageAdapter imageAdapter;
@@ -48,7 +43,7 @@ public class HomeMovieFragment extends Fragment implements OnAsyncTaskCompleted 
         View fragment = inflater.inflate(R.layout.fragment_main, container, false);
         if(fragment != null) {
             ButterKnife.bind(this, fragment);
-            imageAdapter = new ImageAdapter(getActivity(), new ArrayList<DiscoverMovie>());
+            //imageAdapter = new ImageAdapter(getActivity(), new ArrayList<DiscoverMovie>());
             gridView.setAdapter(imageAdapter);
 
             gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -82,28 +77,16 @@ public class HomeMovieFragment extends Fragment implements OnAsyncTaskCompleted 
         Log.d(TAG_LOG, "HomeMovieFragment updateScreen");
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String sortByValue = sharedPreferences.getString(getString(R.string.pref_sort_by_key), getString(R.string.pref_sort_by_popular));
-        MoviePopularTask popularTask = new MoviePopularTask(this);
+        MoviePopularTask popularTask = new MoviePopularTask();
         popularTask.execute(sortByValue);
     }
 
-    @Override
-    public void onTaskCompleted(List<DiscoverMovie> result) {
-        Log.d(TAG_LOG, "HomeMovieFragment onTaskCompleted");
-        imageAdapter.clear();
-        imageAdapter.setMovieThumbnailList(result);
-    }
-
-    public class MoviePopularTask extends AsyncTask<String, Void, List<DiscoverMovie>>{
+    public class MoviePopularTask extends AsyncTask<String, Void, Void>{
 
         private final String TAG_LOG = MoviePopularTask.class.getSimpleName();
-        private OnAsyncTaskCompleted taskListener;
-
-        public MoviePopularTask(OnAsyncTaskCompleted taskListener) {
-            this.taskListener = taskListener;
-        }
 
         @Override
-        protected List<DiscoverMovie> doInBackground(String... params) {
+        protected Void doInBackground(String... params) {
             if(params == null || params.length == 0){
                 Log.i(TAG_LOG, "MoviePopularTask has been null params");
                 return null;
@@ -114,29 +97,23 @@ public class HomeMovieFragment extends Fragment implements OnAsyncTaskCompleted 
 
             //Call API from TheMovieDB by Retrofit Library
             MovieDBService movieDBService = WebService.getMovieDBService();
-            Call<DiscoverMovieResult> call = movieDBService.listMovieThumbnail(getString(R.string.api_key), params[0]);
+            Call<PosterMovieList> call = movieDBService.listMovieThumbnail(getString(R.string.api_key), params[0]);
 
-            try {
-                Log.d(TAG_LOG, "CALL API with param : " + params[0]);
-                return call.execute().body().getResults();
-            } catch (IOException e) {
-                Log.e(TAG_LOG, "ERROR", e);
-                e.printStackTrace();
-                return null;
-            }
+            Log.d(TAG_LOG, "CALL API with param : " + params[0]);
+            return null; //call.execute().body().getResults();
         }
 
-        @Override
-        protected void onPostExecute(List<DiscoverMovie> result) {
-            Log.d(TAG_LOG, "MoviePopularTask onPostExecute");
-            super.onPostExecute(result);
-            if(dialogFragment != null){
-                dialogFragment.dismiss();
-            }
-            if (imageAdapter != null) {
-                taskListener.onTaskCompleted(result);
-            }
-        }
+//        @Override
+//        protected void onPostExecute(List<PosterMovie> result) {
+//            Log.d(TAG_LOG, "MoviePopularTask onPostExecute");
+//            super.onPostExecute(result);
+//            if(dialogFragment != null){
+//                dialogFragment.dismiss();
+//            }
+//            if (imageAdapter != null) {
+//                //taskListener.onTaskCompleted(result);
+//            }
+//        }
     }
 
 }

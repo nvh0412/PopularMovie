@@ -13,17 +13,17 @@ public class Constant {
 
     /* ----------------------- MOVIE LIST --------------------------------- */
     public static final String OWN_RESULT = "results";
-    public static final String OWN_ID = "id";
-    public static final String OWN_THUMBNAIL = "poster_path";
+    public static final String MOVIE_ID = "id";
+    public static final String MOVIE_POSTER = "poster_path";
     public static final String EXTRA_MOVIEID = "MOVIEID";
 
     /*------------------------ DETAIL MOVIE ------------------------------- */
-    public static final String OWN_TITLE = "title";
-    public static final String OWN_VOTE_AVERAGE = "vote_average";
-    public static final String OWN_RUNTIME = "runtime";
-    public static final String OWN_RELEASE_DATE = "release_date";
-    public static final String OWN_POSTER_PATH = "poster_path";
-    public static final String OWN_OVERVIEW = "overview";
+    public static final String MOVIE_TITLE = "title";
+    public static final String MOVIE_VOTE_AVERAGE = "vote_average";
+    public static final String MOVIE_RUNTIME = "runtime";
+    public static final String MOVIE_RELEASE_DATE = "release_date";
+    public static final String MOVIE_POSTER_PATH = "poster_path";
+    public static final String MOVIE_OVERVIEW = "overview";
 
     public static final String THUMBNAIL_BASE_URL = "http://image.tmdb.org/t/p/w185/";
 }
