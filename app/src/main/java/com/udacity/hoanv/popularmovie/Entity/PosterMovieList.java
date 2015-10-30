@@ -2,16 +2,16 @@ package com.udacity.hoanv.popularmovie.Entity;
 
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by HoaNV on 9/7/15.
  */
-public class DiscoverMovieResult implements Serializable {
+public class PosterMovieList implements Serializable {
 
     private Integer page;
 
-    private ArrayList<DiscoverMovie> results;
+    private List<PosterMovie> results;
 
     public Integer getPage() {
         return page;
@@ -21,11 +21,12 @@ public class DiscoverMovieResult implements Serializable {
         this.page = page;
     }
 
-    public ArrayList<DiscoverMovie> getResults() {
+    public List<PosterMovie> getResults() {
         return results;
     }
 
-    public void setResults(ArrayList<DiscoverMovie> results) {
+    public void setResults(List<PosterMovie> results) {
         this.results = results;
     }
+
 }

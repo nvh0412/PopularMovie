@@ -36,6 +36,7 @@ public class TestDB extends AndroidTestCase{
      */
     public void testCreateDatabase() throws Throwable{
         Log.i(LOG_TAG, "TestDB testCreateDatabase");
+        deleteDatabase();
         MovieDBHelper dbHelper = new MovieDBHelper(mContext);
 
         final HashSet<String> tableNameSet = new HashSet<>();
@@ -61,11 +62,18 @@ public class TestDB extends AndroidTestCase{
 
         final HashSet<String> columnNameSet = new HashSet<String>();
         columnNameSet.add(MovieContract.MovieEntry._ID);
-        columnNameSet.add(MovieContract.MovieEntry.COLUMN_MOVIE_ID);
         columnNameSet.add(MovieContract.MovieEntry.COLUMN_TITLE);
         columnNameSet.add(MovieContract.MovieEntry.COLUMN_OVERVIEW);
         columnNameSet.add(MovieContract.MovieEntry.COLUMN_RELEASE_DATE);
         columnNameSet.add(MovieContract.MovieEntry.COLUMN_POSTER_PATH);
+        columnNameSet.add(MovieContract.MovieEntry.COLUMN_RUNTIME);
+        columnNameSet.add(MovieContract.MovieEntry.COLUMN_BACKDROP_PATH);
+        columnNameSet.add(MovieContract.MovieEntry.COLUMN_POPULARITY);
+        columnNameSet.add(MovieContract.MovieEntry.COLUMN_VOTE_AVERAGE);
+        columnNameSet.add(MovieContract.MovieEntry.COLUMN_VOTE_COUNT);
+        columnNameSet.add(MovieContract.MovieEntry.COLUMN_VIDEO);
+
+        assertEquals("Number of columns has to equals with hashset", columnNameSet.size(), cursor.getCount());
 
         int columnNameIndex = cursor.getColumnIndex("name");
         do{
@@ -83,6 +91,7 @@ public class TestDB extends AndroidTestCase{
      *
      */
     public void testMovideTable() {
+        deleteDatabase();
         Log.i(LOG_TAG, "TestDB testMovieTable");
         MovieDBHelper dbHelper = new MovieDBHelper(mContext);
 
@@ -93,7 +102,6 @@ public class TestDB extends AndroidTestCase{
         //Second Step: Create contentValues for save into database
         ContentValues testValues = TestUtilities.createMovieValues();
 
-
         //Third Step: Insert into database
         long id = db.insert(MovieContract.MovieEntry.TABLE_NAME, null, testValues);
         assertTrue("Id of row should be different with -1", id != -1);
@@ -101,8 +109,8 @@ public class TestDB extends AndroidTestCase{
         //Four Step: Query and check ID
         Cursor cursor = db.query(MovieContract.MovieEntry.TABLE_NAME,
                 null, // All columns
-                null, // Column for the where clause
-                null, // Values for column of where clauses.
+                MovieContract.MovieEntry._ID + " = ?", // Column for the where clause
+                new String[] { String.valueOf(id) }, // Values for column of where clauses.
                 null, // Columns for groupBy
                 null, // Value for groupBy
                 null); // OrderBy

@@ -1,8 +1,10 @@
 package com.udacity.hoanv.popularmovie.service;
 
 import com.udacity.hoanv.popularmovie.Constant;
-import com.udacity.hoanv.popularmovie.Entity.DiscoverMovieResult;
-import com.udacity.hoanv.popularmovie.Entity.MovieDetail;
+import com.udacity.hoanv.popularmovie.Entity.Movie;
+import com.udacity.hoanv.popularmovie.Entity.PosterMovieList;
+import com.udacity.hoanv.popularmovie.Entity.ReviewMovieList;
+import com.udacity.hoanv.popularmovie.Entity.VideoMovieList;
 
 import retrofit.Call;
 import retrofit.http.GET;
@@ -15,9 +17,14 @@ import retrofit.http.Query;
 public interface MovieDBService {
 
     @GET("discover/movie")
-    Call<DiscoverMovieResult> listMovieThumbnail(@Query(Constant.API_KEY) String api_key, @Query(Constant.SORT_BY) String sortBy);
+    Call<PosterMovieList> listMovieThumbnail(@Query(Constant.API_KEY) String api_key, @Query(Constant.SORT_BY) String sortBy);
 
     @GET("movie/{id}")
-    Call<MovieDetail> getMovieDetail(@Path("id") Long movieId, @Query(Constant.API_KEY) String api_key);
+    Call<Movie> getMovieDetail(@Path("id") Long id, @Query(Constant.API_KEY) String api_key);
 
+    @GET("movie/{id}/videos")
+    Call<VideoMovieList> getListVideoMovie(@Path("id") Long id, @Query(Constant.API_KEY) String api_key);
+
+    @GET("movie/{id}/reviews")
+    Call<ReviewMovieList> getListReviewMovie(@Path("id") Long id, @Query(Constant.API_KEY) String api_key);
 }
